@@ -9,27 +9,28 @@ namespace Labb2_ConsolePong
 {
     internal class Paddle
     {
-        int x;
-        int y;
-        int size;
+         int x;
+         int y;
+         int size;
 
         public Paddle(int x, int y, int size)
         {
-            x = this.x;
-            y = this.y;
-            size = this.size;
+            this.x = x;
+            this.y = y;
+            this.size = size;
         }
-        void Move(int moveValue)
+
+        public void Move(int moveValue)
         {
             y += moveValue;
         }
 
-        void Draw()
+        public void Draw()
         {
-            for (int i = 0; i > size; i++)
+            for (int i = 0; i < size; i++)
             {
                 Console.SetCursorPosition(x, y+i);
-                Console.Write("O");
+                Console.Write("|");
             }
         }
     }
