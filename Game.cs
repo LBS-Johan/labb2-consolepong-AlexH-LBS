@@ -37,7 +37,7 @@ namespace Labb2_ConsolePong
             {
                 p1Paddle.Move(-1);
             }
-            if (Input.IsPressed(ConsoleKey.DownArrow) && p1Paddle.y != height+p1Paddle.size)
+            if (Input.IsPressed(ConsoleKey.DownArrow) && p1Paddle.y != height-p1Paddle.size)
             {
                 p1Paddle.Move(1);
             }
@@ -46,7 +46,7 @@ namespace Labb2_ConsolePong
             {
                 p0Paddle.Move(-1);
             }
-            if (Input.IsPressed(ConsoleKey.S) && p0Paddle.y != height+p0Paddle.size)
+            if (Input.IsPressed(ConsoleKey.S) && p0Paddle.y != height-p0Paddle.size)
             {
                 p0Paddle.Move(1);
             }
