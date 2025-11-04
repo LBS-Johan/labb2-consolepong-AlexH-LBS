@@ -12,19 +12,18 @@ namespace Labb2_ConsolePong
         int width;
         int height;
 
-        Paddle p0Paddle = new Paddle(1, Console.WindowHeight / 2, 5);
-        Paddle p1Paddle = new Paddle(Console.WindowWidth-1, Console.WindowHeight / 2, 5);
-
-
+        Paddle p0Paddle = new Paddle(2, Console.WindowHeight / 2, 5);
+        Paddle p1Paddle = new Paddle(Console.WindowWidth-2, Console.WindowHeight / 2, 5);
+        Ball ball = new Ball(Console.WindowHeight/2,Console.WindowWidth/2);
         public void StartGame()
         {
             // Setup konsol-fönstret
             width = Console.WindowWidth;
             height = Console.WindowHeight;
             Console.CursorVisible = false;
+            ball.velocityX = 1;
+            ball.velocityY = 1;
         }
-
-
         public bool Run()
         {
             //Töm hela skärmen i början av varje uppdatering.
@@ -32,6 +31,10 @@ namespace Labb2_ConsolePong
 
             p0Paddle.Draw();
             p1Paddle.Draw();
+
+            ball.Move();
+            ball.checkCollisions(p0Paddle, p1Paddle, width, height);
+            ball.Draw();
 
             if (Input.IsPressed(ConsoleKey.UpArrow) && p1Paddle.y != 0)
             {
@@ -51,11 +54,8 @@ namespace Labb2_ConsolePong
                 p0Paddle.Move(1);
             }
 
-
-
             //Return true om spelet ska fortsätta
             return true;
-
         }
     }
 }
